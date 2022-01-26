@@ -6,10 +6,17 @@ import {AppComponent} from './app.component';
 import {LayoutModule} from "./layout/layout.module";
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './pages/login/login/login.component';
+import {FormsModule} from "@angular/forms";
+import {LogoutComponent} from "./pages/login/logout/logout.component";
+import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent,
+        LogoutComponent,
+        VolunteerComponent
     ],
     imports: [
         BrowserModule,
@@ -17,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpClientModule,
         LayoutModule,
         BrowserAnimationsModule,
+        FormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
