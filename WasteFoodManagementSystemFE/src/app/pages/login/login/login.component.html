@@ -1,0 +1,23 @@
+<body>
+<div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="login-box">
+        <h1 style="text-align:center;"> Register / Login </h1>
+        <p style="font-size:18px">Username: </p> <input type="text" style="font-size:18px" name="username" [(ngModel)]="username"> <br>
+        <p style="font-size:18px">Email: </p> <input type="text" style="font-size:18px" name="email" [(ngModel)]="email"> <br>
+        <p style="font-size:18px">Password: </p> <input type="password" style="font-size:18px" name="=password" [(ngModel)]="password"> <br><br>
+
+        <p style="font-size:18px">Choose your role: </p> <br>
+         <input type="radio" id="admin" name="role" value="Administrator">
+         <label style="font-size:16px" for="admin">Administrator</label>
+         <input type="radio" id="manager" name="role" value="Manager">
+         <label style="font-size:16px" for="manager">Manager</label>
+         <input type="radio" id="volunteer" name="role" value="Volunteer">
+         <label style="font-size:16px" for="volunteer">Volunteer</label> <br> <br>
+        <button  >Register</button> <br>
+        <p style="font-size:18px">Already have an account? </p>
+        <button (click)=handleLogin() >Login</button>
+
+    </div>
+</div>
+</body>

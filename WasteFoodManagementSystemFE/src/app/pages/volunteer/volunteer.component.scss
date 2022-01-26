@@ -1,0 +1,37 @@
+.header {
+    margin-left: 310px;
+}
+body {
+    background-color: antiquewhite;
+}
+.button {
+    background-color: ghostwhite;
+    border: 2px solid;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    position: relative;
+    left: 450px;
+}
+
+.button2 {
+    position: relative;
+    left: 800px;
+}
+.img1 {
+    position: relative;
+    left: 365px;
+}
+
+.img2 {
+    position: relative;
+    left: 565px;
+}
