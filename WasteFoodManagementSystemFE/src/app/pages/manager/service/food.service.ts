@@ -3,7 +3,7 @@ import {Food} from "../interface/food";
 import {HttpClient} from "@angular/common/http";
 
 const urls = {
-    getFood: '/assets/mockedData/food.json',
+    getFood: 'http://localhost:8080/food',
     postFood: ''
 };
 
@@ -18,7 +18,11 @@ export class FoodService {
     }
 
     public getFood() {
-        return this.http.get<Food[]>(urls.getFood);
+        return this.http.get<Food[]>(urls.getFood, {
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
     }
 
     public addFood(food: Food) {
