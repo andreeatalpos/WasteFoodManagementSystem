@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Food} from "../interface/food";
+import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Food} from "../../../../manager/interface/food";
 
 const urls = {
     getFood: 'http://localhost:8080/food',
@@ -8,9 +8,9 @@ const urls = {
 };
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class FoodService {
+export class ExpiredService {
 
     constructor(
         private http: HttpClient
@@ -28,5 +28,8 @@ export class FoodService {
     public addFood(food: Food) {
         return this.http.post(urls.postFood, food);
     }
-}
 
+    public deleteFood(food: Food[]) {
+        return this.http.post(urls.postFood, food);
+    }
+}
