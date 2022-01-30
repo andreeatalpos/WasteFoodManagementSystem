@@ -17,10 +17,7 @@ export class MakeRequestsComponent implements OnInit {
         'user_role',
         'phone_number'
     ];
-    public dataSource: Users[] = [
-        {id: 1,full_name: "Crina", username: 'crinapop13', user_role: "admin", phone_number: '0745667889'},
-        {id: 2, full_name: "Raluca", username: 'ralucapop', user_role: "manager", phone_number: '0765667809'}
-    ];
+    public dataSource: Users[] = [];
 
     public selection = new SelectionModel<Users>(true, []);
 
@@ -29,18 +26,16 @@ export class MakeRequestsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        //this.getUsers();
+        this.getUsers();
     }
 
-    // private getUsers() {
-    //     this.userService.getUsers().subscribe((value: Users[]) => {
-    //         //this.dataSource = value;
-    //     });
-    // }
-
-    public deleteUsers() {
-        this.userService.deleteUsers(this.dataSource);
+    private getUsers() {
+        this.userService.getUsers().subscribe((value: Users[]) => {
+            this.dataSource = value;
+        });
     }
+
+
 
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
@@ -65,5 +60,13 @@ export class MakeRequestsComponent implements OnInit {
             return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
         }
         return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+    }
+
+    public deleteUsers() {
+        this.userService.deleteUsers(this.selection.selected.map(data => data.id)).subscribe(() => {
+            this.getUsers();
+            this.selection.clear();
+        });
+
     }
 }

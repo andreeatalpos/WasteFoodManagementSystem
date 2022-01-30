@@ -12,7 +12,7 @@ export class LayoutComponent implements OnInit {
     constructor(public authenticationService: AuthenticationService) { }
 
     ngOnInit(): void {
-        this.isUserLoggedIn = this.authenticationService.isUserLoggedIn();
+       // this.isUserLoggedIn = this.authenticationService.isUserLoggedIn();
     }
 
 

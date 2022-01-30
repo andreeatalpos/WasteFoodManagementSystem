@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {User} from "../model/user";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
 
-    constructor() { }
+    constructor(private http :HttpClient) { }
 
-    authenticate(username:string, password:string) {
-        // console.log('inainte' + this.isUserLoggedIn());
-        if (username === "admin" && password === "admin") {
-            sessionStorage.setItem('authenticatedUser', username);
-            // console.log('dupa' + this.isUserLoggedIn());
-            return true;
-        } else {
-            return false;
-        }
+    public loginUser(user:User): Observable<any> {
+        sessionStorage.setItem('authenticatedUser', user.username);
+       return this.http.post<any>("http://localhost:8085/login",user);
+    }
+
+    public registerUser(user:User): Observable<any> {
+        sessionStorage.setItem('authenticatedUser', user.username);
+        return this.http.post<any>("http://localhost:8085/register",user);
     }
 
     isUserLoggedIn(){

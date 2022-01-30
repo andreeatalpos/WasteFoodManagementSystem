@@ -10,10 +10,12 @@ const routes: Routes = [
         path: 'manager',
         loadChildren: () =>
             import('./pages/manager/manager.module').then((m) => m.ManagerModule),
+        canActivate:[RouteGuardService]
     }, {
         path: 'admin',
         loadChildren: () =>
             import('./pages/admin/admin.module').then((m) => m.AdminModule),
+        canActivate:[RouteGuardService]
     },
     {path:'login', component: LoginComponent},
     {path:'volunteer', component: VolunteerComponent, canActivate:[RouteGuardService]},

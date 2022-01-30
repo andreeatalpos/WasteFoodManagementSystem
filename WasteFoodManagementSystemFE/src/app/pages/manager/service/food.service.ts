@@ -3,8 +3,8 @@ import {Food} from "../interface/food";
 import {HttpClient} from "@angular/common/http";
 
 const urls = {
-    getFood: 'http://localhost:8080/food',
-    postFood: ''
+    getFood: 'http://localhost:8085/food',
+    postFood: 'http://localhost:8085/food'
 };
 
 @Injectable({

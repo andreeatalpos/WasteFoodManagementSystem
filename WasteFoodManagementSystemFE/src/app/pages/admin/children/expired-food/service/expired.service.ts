@@ -3,8 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {Food} from "../../../../manager/interface/food";
 
 const urls = {
-    getFood: 'http://localhost:8080/food',
-    postFood: ''
+    getFood: 'http://localhost:8085/food',
+    postFood: 'http://localhost:8085/food',
+    deleteFood: 'http://localhost:8085/deleteFood'
 };
 
 @Injectable({
@@ -29,7 +30,8 @@ export class ExpiredService {
         return this.http.post(urls.postFood, food);
     }
 
-    public deleteFood(food: Food[]) {
-        return this.http.post(urls.postFood, food);
+    public deleteFood(ids: number[]) {
+        return this.http.post(urls.deleteFood,ids,
+            {headers: {'Accept': 'application/json'}})
     }
 }

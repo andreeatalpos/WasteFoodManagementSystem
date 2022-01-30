@@ -19,11 +19,11 @@ public class LoginService {
         return usersRepository.findByEmail(email);
     }
 
-    public Users checkCredentials(LoginCredentialsDTO loginCredentials) {
-        if(this.usersRepository.findUsersByUsernameAndPassword(loginCredentials.getUsername(), loginCredentials.getPassword())!=null) {
-            return this.usersRepository.findUsersByUsernameAndPassword(loginCredentials.getUsername(), loginCredentials.getPassword());
-        }
-        return null;
-    }
+//    public Users checkCredentials(LoginCredentialsDTO loginCredentials) {
+//        if(this.usersRepository.findUsersByUsernameAndPassword(loginCredentials.getUsername(), loginCredentials.getPassword())!=null) {
+//            return this.usersRepository.findUsersByUsernameAndPassword(loginCredentials.getUsername(), loginCredentials.getPassword());
+//        }
+//        return null;
+//    }
 }
 

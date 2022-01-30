@@ -76,25 +76,16 @@
             </svg>
         </div>
 
-        <button class="login"
-                color="primary"
-                mat-button
-                *ngIf="!authenticationService.isUserLoggedIn()"
-                routerLink="login" >
-            Log in
-        </button>
-
         <button class="logout"
                 color="primary"
-                mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="login" >
+                mat-button
+                *ngIf="authenticationService.isUserLoggedIn()"
+                routerLink="login"
+                (click)=authenticationService.logout()>
             Log out
         </button>
 
-        <button class="volunteer"
-                color="primary"
-                mat-button *ngIf="authenticationService.isUserLoggedIn()" routerLink="volunteer" >
-            Volunteer Page
-        </button>
+
 
     </nav>
 </header>

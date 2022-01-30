@@ -27,10 +27,21 @@ export class ExpiredFoodComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.getFood();
+    }
+
+    private getFood() {
+        this.foodService.getFood().subscribe((value: Food[]) => {
+            this.dataSource = value;
+        });
     }
 
     public deleteFood() {
-        this.foodService.deleteFood(this.dataSource);
+        this.foodService.deleteFood(this.selection.selected.map(data => data.id)).subscribe(() => {
+            this.getFood();
+            this.selection.clear();
+        });
+
     }
 
     /** Whether the number of selected elements matches the total number of rows. */
@@ -57,4 +68,6 @@ export class ExpiredFoodComponent implements OnInit {
         }
         return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
     }
+
+
 }
