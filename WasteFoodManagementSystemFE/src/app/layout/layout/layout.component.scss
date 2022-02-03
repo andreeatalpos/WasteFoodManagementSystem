@@ -22,15 +22,22 @@ header {
         .logout {
             color: #fff;
         }
+        .login {
+            color: #fff;
+        }
+        .volunteer {
+            color: #fff;
+        }
     }
 }
 
 
 main {
     height: calc(100% - 64px - 30px);
-
     padding: 2rem;
     overflow-y: auto;
+    //background-image: url('/assets/images/login_bk5.jpg');
+    //background-size: cover;
 }
 
 footer {
@@ -46,3 +53,4 @@ footer {
     background-color: #3f4e97;
     color: #ffffff;
 }
+

@@ -3,8 +3,8 @@ import {Food} from "../interface/food";
 import {HttpClient} from "@angular/common/http";
 
 const urls = {
-    getFood: '/assets/mockedData/food.json',
-    postFood: ''
+    getFood: 'http://localhost:8085/food',
+    postFood: 'http://localhost:8085/food'
 };
 
 @Injectable({
@@ -18,7 +18,11 @@ export class FoodService {
     }
 
     public getFood() {
-        return this.http.get<Food[]>(urls.getFood);
+        return this.http.get<Food[]>(urls.getFood, {
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
     }
 
     public addFood(food: Food) {

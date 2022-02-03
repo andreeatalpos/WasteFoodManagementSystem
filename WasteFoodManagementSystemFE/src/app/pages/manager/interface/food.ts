@@ -1,5 +1,5 @@
 export interface Food {
-    index: number;
+    id: number;
     plateType: string;
     quantity: number;
     ingredients: string;

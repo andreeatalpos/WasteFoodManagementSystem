@@ -78,9 +78,15 @@
 
         <button class="logout"
                 color="primary"
-                mat-button>
+                mat-button
+                *ngIf="authenticationService.isUserLoggedIn()"
+                routerLink="login"
+                (click)=authenticationService.logout()>
             Log out
         </button>
+
+
+
     </nav>
 </header>
 

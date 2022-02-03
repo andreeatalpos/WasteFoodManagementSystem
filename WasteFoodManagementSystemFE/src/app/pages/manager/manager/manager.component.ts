@@ -12,7 +12,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class ManagerComponent implements OnInit {
 
     public displayedColumns: string[] = [
-        'index',
+        'id',
         'plateType',
         'quantity',
         'ingredients',
